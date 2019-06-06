@@ -64,10 +64,10 @@ public class ContactService {
         LOGGER.info("Retrieving product {}", request);
 
         if (request.getPartialFirstName() != null && request.getPhoneNumber() != null) {
-            return contactRepository.findByFirstNameContainingAndPhoneNumberContaining(request.getPartialFirstName(), request.getPhoneNumber(), pageable);
+            return contactRepository.findByFirstNameContainingAndPhoneNumberStartingWith(request.getPartialFirstName(), request.getPhoneNumber(), pageable);
         }
         else if (request.getPartialFirstName() != null) {
-            return contactRepository.findByPartialFirstName(request.getPartialFirstName(), pageable);
+            return contactRepository.findByFirstNameContaining(request.getPartialFirstName(), pageable);
         }
         return contactRepository.findAll(pageable);
     }

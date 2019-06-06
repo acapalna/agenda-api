@@ -9,8 +9,8 @@ import org.springframework.data.jpa.repository.Query;
 public interface ContactRepository extends JpaRepository<Contact, Long> {
 
     Page<Contact> findByFirstNameContaining(String partialFirstName, Pageable pageable);
-    Page<Contact> findByFirstNameContainingAndPhoneNumberContaining(String partialName, long phoneNumber, Pageable pageable);
+    Page<Contact> findByFirstNameContainingAndPhoneNumberStartingWith(String partialName, Long phoneNumber, Pageable pageable);
 
-    @Query("SELECT contact FROM Contact product WHERE firstName LIKE '%?1'") // '%?1' primul parametru
+    @Query("SELECT contact FROM Contact contact WHERE firstName LIKE '%?1'") // '%?1' primul parametru
     Page<Contact> findByPartialFirstName(String partialFirstName, Pageable pageable);
 }

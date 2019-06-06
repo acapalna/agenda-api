@@ -21,7 +21,7 @@ public class Contact {
     private Integer age;
     @NotNull
     private Long phoneNumber;
-    private Double description;
+    private String description;
     private String imagePath;
 
     public long getId() {
@@ -72,11 +72,11 @@ public class Contact {
         this.phoneNumber = phoneNumber;
     }
 
-    public Double getDescription() {
+    public String getDescription() {
         return description;
     }
 
-    public void setDescription(Double description) {
+    public void setDescription(String description) {
         this.description = description;
     }
 
