@@ -63,11 +63,29 @@ public class ContactService {
     public Page<Contact> getContact(GetContactRequest request, Pageable pageable) {
         LOGGER.info("Retrieving product {}", request);
 
-        if (request.getPartialFirstName() != null && request.getPhoneNumber() != null) {
-            return contactRepository.findByFirstNameContainingAndPhoneNumberStartingWith(request.getPartialFirstName(), request.getPhoneNumber(), pageable);
+        if (request.getPartialFirstName() != null && request.getPartialPhoneNumber() != null) {
+            return contactRepository.findByFirstNameContainingAndPhoneNumberStartingWith(request.getPartialFirstName(), request.getPartialPhoneNumber(), pageable);
         }
         else if (request.getPartialFirstName() != null) {
             return contactRepository.findByFirstNameContaining(request.getPartialFirstName(), pageable);
+        }
+        else if (request.getPartialLastName() != null) {
+            return contactRepository.findByLastNameContaining(request.getPartialLastName(), pageable);
+        }
+        else if (request.getPartialNickName() != null) {
+            return contactRepository.findByNickNameContaining(request.getPartialNickName(), pageable);
+        }
+        else if (request.getPartialPhoneNumber() != null) {
+            return contactRepository.findByPhoneNumberStartingWith(request.getPartialPhoneNumber(), pageable);
+        }
+        else if (request.getPartialId() != null) {
+            return contactRepository.findByIdContaining(request.getPartialId(), pageable);
+        }
+        else if (request.getPartialAge() != null) {
+            return contactRepository.findByAgeContaining(request.getPartialAge(), pageable);
+        }
+        else if (request.getPartialDescription() != null) {
+            return contactRepository.findByDescriptionContaining(request.getPartialDescription(), pageable);
         }
         return contactRepository.findAll(pageable);
     }
