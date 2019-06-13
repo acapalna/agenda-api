@@ -2,6 +2,7 @@ package org.fasttrackit.agendaapi.transfer.event;
 
 
 import javax.validation.constraints.NotNull;
+import java.sql.Time;
 import java.util.Date;
 
 public class CreateEventRequest {
@@ -11,7 +12,7 @@ public class CreateEventRequest {
     @NotNull
     private String eventTitle;
     private Date eventDate;
-    private String eventStartTime;
+    private Time eventStartTime;
     private String eventDuration;
     private String eventDescription;
     private String eventMembers;
@@ -40,11 +41,11 @@ public class CreateEventRequest {
         this.eventDate = eventDate;
     }
 
-    public String getEventStartTime() {
+    public Time getEventStartTime() {
         return eventStartTime;
     }
 
-    public void setEventStartTime(String eventStartTime) {
+    public void setEventStartTime(Time eventStartTime) {
         this.eventStartTime = eventStartTime;
     }
 

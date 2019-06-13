@@ -4,6 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
+import java.sql.Time;
 import java.util.Date;
 
 @Entity
@@ -17,7 +18,7 @@ public class Event {
     @NotNull
     private String eventTitle;
     private Date eventDate;
-    private String eventStartTime;
+    private Time eventStartTime;
     private Double eventDuration;
     private String eventDescription;
     private String eventMembers;
@@ -54,11 +55,11 @@ public class Event {
         this.eventDate = eventDate;
     }
 
-    public String getEventStartTime() {
+    public Time getEventStartTime() {
         return eventStartTime;
     }
 
-    public void setEventStartTime(String eventStartTime) {
+    public void setEventStartTime(Time eventStartTime) {
         this.eventStartTime = eventStartTime;
     }
 
