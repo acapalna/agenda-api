@@ -1,20 +1,16 @@
 package org.fasttrackit.agendaapi;
 
-import org.fasttrackit.agendaapi.contact.Contact;
+import org.fasttrackit.agendaapi.domain.Contact;
 import org.fasttrackit.agendaapi.exception.ResourceNotFoundException;
 import org.fasttrackit.agendaapi.service.ContactService;
-import org.fasttrackit.agendaapi.transfer.CreateContactRequest;
-import org.fasttrackit.agendaapi.transfer.UpdateContactRequest;
-import org.hamcrest.text.IsEmptyString;
+import org.fasttrackit.agendaapi.transfer.contact.CreateContactRequest;
+import org.fasttrackit.agendaapi.transfer.contact.UpdateContactRequest;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.cache.support.NullValue;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.transaction.TransactionSystemException;
-
-import javax.validation.constraints.Null;
 
 import static org.hamcrest.CoreMatchers.*;
 import static org.hamcrest.MatcherAssert.assertThat;

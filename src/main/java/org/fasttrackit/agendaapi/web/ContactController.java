@@ -1,11 +1,11 @@
 package org.fasttrackit.agendaapi.web;
 
-import org.fasttrackit.agendaapi.contact.Contact;
+import org.fasttrackit.agendaapi.domain.Contact;
 import org.fasttrackit.agendaapi.exception.ResourceNotFoundException;
 import org.fasttrackit.agendaapi.service.ContactService;
-import org.fasttrackit.agendaapi.transfer.CreateContactRequest;
-import org.fasttrackit.agendaapi.transfer.GetContactRequest;
-import org.fasttrackit.agendaapi.transfer.UpdateContactRequest;
+import org.fasttrackit.agendaapi.transfer.contact.CreateContactRequest;
+import org.fasttrackit.agendaapi.transfer.contact.GetContactRequest;
+import org.fasttrackit.agendaapi.transfer.contact.UpdateContactRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;

@@ -1,10 +1,17 @@
-package org.fasttrackit.agendaapi.transfer;
+package org.fasttrackit.agendaapi.domain;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 
-public class UpdateContactRequest {
+@Entity
+public class Contact {
 
+    @Id
+    @GeneratedValue
+    private long id;
     @NotNull
     private String firstName;
     @NotNull
@@ -14,8 +21,16 @@ public class UpdateContactRequest {
     private Integer age;
     @NotNull
     private Long phoneNumber;
-    private Double description;
+    private String description;
     private String imagePath;
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
 
     public String getFirstName() {
         return firstName;
@@ -57,11 +72,11 @@ public class UpdateContactRequest {
         this.phoneNumber = phoneNumber;
     }
 
-    public Double getDescription() {
+    public String getDescription() {
         return description;
     }
 
-    public void setDescription(Double description) {
+    public void setDescription(String description) {
         this.description = description;
     }
 
@@ -71,18 +86,5 @@ public class UpdateContactRequest {
 
     public void setImagePath(String imagePath) {
         this.imagePath = imagePath;
-    }
-
-    @Override
-    public String toString() {
-        return "UpdateContactRequest{" +
-                "firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
-                ", nickName='" + nickName + '\'' +
-                ", age=" + age +
-                ", phoneNumber=" + phoneNumber +
-                ", description=" + description +
-                ", imagePath='" + imagePath + '\'' +
-                '}';
     }
 }

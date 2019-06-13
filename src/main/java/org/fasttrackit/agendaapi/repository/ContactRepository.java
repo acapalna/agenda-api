@@ -1,6 +1,6 @@
 package org.fasttrackit.agendaapi.repository;
 
-import org.fasttrackit.agendaapi.contact.Contact;
+import org.fasttrackit.agendaapi.domain.Contact;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;

@@ -1,4 +1,4 @@
-package org.fasttrackit.agendaapi.transfer;
+package org.fasttrackit.agendaapi.transfer.contact;
 
 
 public class GetContactRequest {

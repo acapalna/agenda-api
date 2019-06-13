@@ -1,17 +1,10 @@
-package org.fasttrackit.agendaapi.contact;
+package org.fasttrackit.agendaapi.transfer.contact;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 
-@Entity
-public class Contact {
+public class UpdateContactRequest {
 
-    @Id
-    @GeneratedValue
-    private long id;
     @NotNull
     private String firstName;
     @NotNull
@@ -23,14 +16,6 @@ public class Contact {
     private Long phoneNumber;
     private String description;
     private String imagePath;
-
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
-    }
 
     public String getFirstName() {
         return firstName;
@@ -86,5 +71,18 @@ public class Contact {
 
     public void setImagePath(String imagePath) {
         this.imagePath = imagePath;
+    }
+
+    @Override
+    public String toString() {
+        return "UpdateContactRequest{" +
+                "firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", nickName='" + nickName + '\'' +
+                ", age=" + age +
+                ", phoneNumber=" + phoneNumber +
+                ", description=" + description +
+                ", imagePath='" + imagePath + '\'' +
+                '}';
     }
 }

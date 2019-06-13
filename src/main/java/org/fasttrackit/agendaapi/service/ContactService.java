@@ -1,12 +1,12 @@
 package org.fasttrackit.agendaapi.service;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import org.fasttrackit.agendaapi.contact.Contact;
+import org.fasttrackit.agendaapi.domain.Contact;
 import org.fasttrackit.agendaapi.exception.ResourceNotFoundException;
 import org.fasttrackit.agendaapi.repository.ContactRepository;
-import org.fasttrackit.agendaapi.transfer.CreateContactRequest;
-import org.fasttrackit.agendaapi.transfer.GetContactRequest;
-import org.fasttrackit.agendaapi.transfer.UpdateContactRequest;
+import org.fasttrackit.agendaapi.transfer.contact.CreateContactRequest;
+import org.fasttrackit.agendaapi.transfer.contact.GetContactRequest;
+import org.fasttrackit.agendaapi.transfer.contact.UpdateContactRequest;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.BeanUtils;
@@ -30,7 +30,7 @@ public class ContactService {
     }
 
     public Contact createContact(CreateContactRequest request){
-        LOGGER.info("Creating contact {}", request);
+        LOGGER.info("Creating domain {}", request);
 
         Contact contact = objectMapper.convertValue(request, Contact.class);
 
@@ -39,13 +39,13 @@ public class ContactService {
     }
 
     public Contact getContact(long id) throws ResourceNotFoundException {
-        LOGGER.info("Retrieving contact {}", id);
+        LOGGER.info("Retrieving domain {}", id);
         return contactRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("Contact " + id + " does not exist"));
     }
 
     public Contact updateContact(long id, UpdateContactRequest request) throws ResourceNotFoundException {
-        LOGGER.info("Updating contact {} with {}", id, request);
+        LOGGER.info("Updating domain {} with {}", id, request);
 
         Contact contact = getContact(id);
         BeanUtils.copyProperties(request, contact);
@@ -55,9 +55,9 @@ public class ContactService {
     }
 
     public void deleteContact(long id){
-        LOGGER.info("Deleting contact {}", id);
+        LOGGER.info("Deleting domain {}", id);
         contactRepository.deleteById(id);
-        LOGGER.info("Deleted contact {}", id);
+        LOGGER.info("Deleted domain {}", id);
     }
 
     public Page<Contact> getContact(GetContactRequest request, Pageable pageable) {

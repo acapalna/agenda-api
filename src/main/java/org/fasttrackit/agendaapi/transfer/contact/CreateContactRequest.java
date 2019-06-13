@@ -1,4 +1,4 @@
-package org.fasttrackit.agendaapi.transfer;
+package org.fasttrackit.agendaapi.transfer.contact;
 
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
